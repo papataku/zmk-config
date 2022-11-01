@@ -7,6 +7,13 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#define LOWER 1
+#define RAISE 2
+#define FUNC1 3
+#define FUNC2 4
+#define FUNC3 5
+#define FUNC4 6
+
 / {
 	keymap {
 		compatible = "zmk,keymap";
@@ -18,10 +25,10 @@
 			// | SHIFT |  Z   |  X   |  C   |  V   |  B   |   N   |  M    |  ,   |  .   |   /   |  RET  |
 			// |       | LCTL | LALT | LGUI | LOWR |     SPACE    |  RAIS | LARW | DARW | UARW  |  RARW |
 			bindings = <
-				&kp TAB  &kp Q    &kp W &kp E &kp R &kp T  &kp Y   &kp U  &kp I    &kp O   &kp P    &kp BSPC
-				&kp ESC  &kp A    &kp S &kp D &kp F &kp G  &kp H   &kp J  &kp K    &kp L   &kp SEMI &kp SQT
-				&kp LSHFT &kp Z    &kp X &kp C &kp V &kp B  &kp N   &kp M  &kp COMMA &kp DOT &kp SLASH &kp RET
-				&trans   &kp LCTL &kp LALT &kp LGUI &mo 1 &trans &kp SPACE &mo 2 &kp LEFT &kp DOWN &kp UP &kp RIGHT
+				&kp TAB    &kp Q    &kp W    &kp E      &kp R                    &kp T   &kp Y     &kp U                  &kp I      &kp O     &kp P     &kp BSPC
+				&kp ESC    &kp A    &kp S    &kp D      &kp F                    &kp G   &kp H     &kp J                  &kp K      &kp L     &kp SEMI  &kp RET
+				&kp LSHFT  &kp Z    &kp X    &kp C      &kp V                    &kp B   &kp N     &kp M                  &kp COMMA  &kp DOT   &kp SLASH &kp MINUS
+				&kp LCTL   &kp LGUI &kp LALT &mo FUNC1  &lt LOWER INT_MUHENKAN   &trans  &kp SPACE &lt RAISE INT_HENKAN   &mo FUNC2  &mo DFUNC3 &trans    &trans
 			>;
 		};
 
@@ -40,6 +47,42 @@
 				&kp DEL &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH
 				&trans &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 &kp HASH &kp BSLH &kp PG_UP &kp PG_DN &trans
 				&reset &bootloader &trans &trans &trans &trans &trans &trans &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP &kp C_PP
+			>;
+		};
+
+		func1 {
+			bindings = <
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+			>;
+		};
+
+		func2 {
+			bindings = <
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+			>;
+		};
+
+		func3 {
+			bindings = <
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+			>;
+		};
+
+		func4 {
+			bindings = <
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+				&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 			>;
 		};
 	};
